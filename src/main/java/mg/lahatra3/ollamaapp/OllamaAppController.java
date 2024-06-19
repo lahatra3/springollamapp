@@ -10,6 +10,7 @@ import mg.lahatra3.ollamaapp.beans.OllamaAppRequestBody;
 import reactor.core.publisher.Flux;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -19,7 +20,7 @@ public class OllamaAppController {
     @Autowired
     private OllamaAppService ollamaAppService;
 
-    @GetMapping("/generate")
+    @PostMapping("/generate")
     public Map<String, String> generate(@RequestBody() OllamaAppRequestBody ollamaAppRequestBody) {
 
         return ollamaAppService.generate(
@@ -27,7 +28,7 @@ public class OllamaAppController {
         );
     }
     
-    @GetMapping("/generate-stream")
+    @PostMapping("/generate-stream")
     public Flux<ChatResponse> getMethodName(@RequestBody OllamaAppRequestBody ollamaAppRequestBody) {
 
         return ollamaAppService.generateStream(
