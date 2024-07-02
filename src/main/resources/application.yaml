@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: ollama_app
+    config:
+        import: optional:file:local/.env[.properties]
+    ai:
+        ollama:
+            base-url: ${OLLAMA_BASE_URL}
+            chat.options:
+                model: ${OLLAMA_CHAT_OPTIONS_MODEL}
+                temperature: ${OLLAMA_CHAT_OPTIONS_TEMPERATURE}
+server:
+    port: ${SERVER_PORT}
